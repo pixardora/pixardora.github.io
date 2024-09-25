@@ -45,7 +45,7 @@ defaults:
     values:
       layout: tagged
 
-# baseurl: ""
+baseurl: ""
 permalink: /blog/:slug
 # timezone: America/New_York
 timezone: Hongkong
