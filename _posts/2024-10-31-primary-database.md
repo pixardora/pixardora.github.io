@@ -158,6 +158,7 @@ Then it looks like this: pretty cool:
 4. Search entries
 5. View full entry by ID
 6. Exit
+
 Enter your choice (1-6): 1
 
 Enter new research entry:
@@ -173,6 +174,7 @@ Entry added successfully!
 4. Search entries
 5. View full entry by ID
 6. Exit
+
 Enter your choice (1-6): 1
 
 Enter new research entry:
@@ -188,6 +190,7 @@ Entry added successfully!
 4. Search entries
 5. View full entry by ID
 6. Exit
+
 Enter your choice (1-6): 4
 Enter search term: river valley
 | ID | Category | Source | Analysis | Date Added |
@@ -201,6 +204,7 @@ Enter search term: river valley
 4. Search entries
 5. View full entry by ID
 6. Exit
+
 Enter your choice (1-6): 2
 Here's the table in markdown format:
 
@@ -216,6 +220,7 @@ Here's the table in markdown format:
 4. Search entries
 5. View full entry by ID
 6. Exit
+
 Enter your choice (1-6): [____________________]
 
 
