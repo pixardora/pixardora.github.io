@@ -204,13 +204,12 @@ Enter search term: river valley
 5. View full entry by ID
 6. Exit
 Enter your choice (1-6): 2
-+------+------------+----------------+-------------------------------------------------------+----------------------------+
-|   ID | Category   | Source         | Analysis                                              | Date Added                 |
-+======+============+================+=======================================================+============================+
-|    1 | official   | 1751皇清職貢圖 | earliest record of this occupation                    | 2024-10-31 01:38:19.851979 |
-+------+------------+----------------+-------------------------------------------------------+----------------------------+
-|    2 | individual | 難忘上學路     | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
-+------+------------+----------------+-------------------------------------------------------+----------------------------+
+Here's the table in markdown format:
+
+| ID | Category | Source | Analysis | Date Added |
+|----|----------|---------|-----------|------------|
+| 1 | official | 1751皇清職貢圖 | earliest record of this occupation | 2024-10-31 01:38:19.851979 |
+| 2 | individual | 難忘上學路 | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
 
 === Research Database Manager ===
 1. Add new entry
