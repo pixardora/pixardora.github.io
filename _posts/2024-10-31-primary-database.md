@@ -149,3 +149,74 @@ if __name__ == "__main__":
     main()
 
 ```
+Then it looks like this: pretty cool:
+
+=== Research Database Manager ===
+1. Add new entry
+2. View all entries (summary)
+3. View by category
+4. Search entries
+5. View full entry by ID
+6. Exit
+Enter your choice (1-6): 1
+
+Enter new research entry:
+Enter primary source text: 1751皇清職貢圖
+Enter your analysis: earliest record of this occupation
+Enter category: official 
+Entry added successfully!
+
+=== Research Database Manager ===
+1. Add new entry
+2. View all entries (summary)
+3. View by category
+4. Search entries
+5. View full entry by ID
+6. Exit
+Enter your choice (1-6): 1
+
+Enter new research entry:
+Enter primary source text: 難忘上學路
+Enter your analysis: the landscape of the river valley, the mountains, and the state's purchasing station
+Enter category: individual 
+Entry added successfully!
+
+=== Research Database Manager ===
+1. Add new entry
+2. View all entries (summary)
+3. View by category
+4. Search entries
+5. View full entry by ID
+6. Exit
+Enter your choice (1-6): 4
+Enter search term: river valley
++------+------------+------------+-------------------------------------------------------+----------------------------+
+|   ID | Category   | Source     | Analysis                                              | Date Added                 |
++======+============+============+=======================================================+============================+
+|    2 | individual | 難忘上學路 | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
++------+------------+------------+-------------------------------------------------------+----------------------------+
+
+=== Research Database Manager ===
+1. Add new entry
+2. View all entries (summary)
+3. View by category
+4. Search entries
+5. View full entry by ID
+6. Exit
+Enter your choice (1-6): 2
++------+------------+----------------+-------------------------------------------------------+----------------------------+
+|   ID | Category   | Source         | Analysis                                              | Date Added                 |
++======+============+================+=======================================================+============================+
+|    1 | official   | 1751皇清職貢圖 | earliest record of this occupation                    | 2024-10-31 01:38:19.851979 |
++------+------------+----------------+-------------------------------------------------------+----------------------------+
+|    2 | individual | 難忘上學路     | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
++------+------------+----------------+-------------------------------------------------------+----------------------------+
+
+=== Research Database Manager ===
+1. Add new entry
+2. View all entries (summary)
+3. View by category
+4. Search entries
+5. View full entry by ID
+6. Exit
+Enter your choice (1-6): 
