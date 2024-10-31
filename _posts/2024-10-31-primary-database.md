@@ -192,6 +192,7 @@ Entry added successfully!
 6. Exit
 
 Enter your choice (1-6): 4
+
 Enter search term: river valley
 
 | ID | Category | Source | Analysis | Date Added |
@@ -207,7 +208,6 @@ Enter search term: river valley
 6. Exit
 
 Enter your choice (1-6): 2
-Here's the table in markdown format:
 
 | ID | Category | Source | Analysis | Date Added |
 |----|----------|---------|-----------|------------|
