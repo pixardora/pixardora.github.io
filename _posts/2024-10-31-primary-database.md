@@ -4,6 +4,9 @@ title:  "Primary Source Organizer"
 date:   2024-10-31
 tags: [techniques]
 ---
+As the research goes on, I have collected way too many primary sources. They are in diverse materiality and have different connection with the research. I have long wanted to build a small database to a) collect all the primary sources;b)write brief annotations;c)categorize them for later use. It should be searchable as well. I ask Claude to write it for me. It actually looks not bad.
+
+
 ```
 import sqlite3
 import datetime
