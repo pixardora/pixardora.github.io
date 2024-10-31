@@ -190,11 +190,9 @@ Entry added successfully!
 6. Exit
 Enter your choice (1-6): 4
 Enter search term: river valley
-+------+------------+------------+-------------------------------------------------------+----------------------------+
-|   ID | Category   | Source     | Analysis                                              | Date Added                 |
-+======+============+============+=======================================================+============================+
-|    2 | individual | 難忘上學路 | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
-+------+------------+------------+-------------------------------------------------------+----------------------------+
+| ID | Category | Source | Analysis | Date Added |
+|----|----------|---------|-----------|------------|
+| 2 | individual | 難忘上學路 | the landscape of the river valley, the mountains, ... | 2024-10-31 01:39:24.758977 |
 
 === Research Database Manager ===
 1. Add new entry
@@ -218,4 +216,6 @@ Here's the table in markdown format:
 4. Search entries
 5. View full entry by ID
 6. Exit
-Enter your choice (1-6): 
+Enter your choice (1-6): [____________________]
+
+
