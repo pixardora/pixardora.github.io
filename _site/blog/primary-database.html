@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Primary Source Organizer | Work in Progress</title><meta name="description" content="a minimal, text focused blog theme"><link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"><link href='/feed.xml' rel='alternate' type='application/atom+xml'><link rel="canonical" href="/blog/primary-database"><link rel="stylesheet" href="/assets/style.css"><body><main><h2 class="title">Work in Progress</h2><nav> <a href="http://localhost:4000">About</a> <a href="http://localhost:4000/blog">Blog</a></nav><h1>Primary Source Organizer</h1><i>Oct 31, 2024</i><h4 class="subtitle"></h4><p>As the research goes on, I have collected way too many primary sources. They are in diverse materiality and have different connection with the research. I have long wanted to build a small database to a) collect all the primary sources;b)write brief annotations;c)categorize them for later use. It should be searchable as well. I ask Claude to write it for me. It actually looks not bad.</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sqlite3
+import datetime
+from tabulate import tabulate  # You'll need to install this with: pip install tabulate
+
+class ResearchDatabase:
+    def __init__(self):
+        self.conn = sqlite3.connect('research.db')
+        self.create_table()
+        
+    def create_table(self):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS research_entries (
+            id INTEGER PRIMARY KEY,
+            source TEXT,
+            analysis TEXT,
+            category TEXT,
+            date_added TIMESTAMP
+        )
+        ''')
+        self.conn.commit()
+        
+    def add_entry(self):
+        print("\nEnter new research entry:")
+        source = input("Enter primary source text: ")
+        analysis = input("Enter your analysis: ")
+        category = input("Enter category: ")
+        date_added = datetime.datetime.now()
+        
+        cursor = self.conn.cursor()
+        cursor.execute('''
+        INSERT INTO research_entries (source, analysis, category, date_added)
+        VALUES (?, ?, ?, ?)
+        ''', (source, analysis, category, date_added))
+        self.conn.commit()
+        print("Entry added successfully!")
+    
+    def view_entries(self, mode='all', filter_value=None):
+        cursor = self.conn.cursor()
+        
+        if mode == 'all':
+            cursor.execute('SELECT id, category, source, analysis, date_added FROM research_entries')
+        elif mode == 'category':
+            cursor.execute('SELECT id, category, source, analysis, date_added FROM research_entries WHERE category = ?', (filter_value,))
+        elif mode == 'search':
+            search_term = f'%{filter_value}%'
+            cursor.execute('''
+            SELECT id, category, source, analysis, date_added 
+            FROM research_entries 
+            WHERE source LIKE ? OR analysis LIKE ? OR category LIKE ?
+            ''', (search_term, search_term, search_term))
+            
+        entries = cursor.fetchall()
+        
+        if not entries:
+            print("\nNo entries found.")
+            return
+            
+        headers = ['ID', 'Category', 'Source', 'Analysis', 'Date Added']
+        # Format entries for display, truncating long text
+        formatted_entries = []
+        for entry in entries:
+            formatted_entry = list(entry)
+            formatted_entry[2] = formatted_entry[2][:50] + '...' if len(formatted_entry[2]) &gt; 50 else formatted_entry[2]
+            formatted_entry[3] = formatted_entry[3][:50] + '...' if len(formatted_entry[3]) &gt; 50 else formatted_entry[3]
+            formatted_entries.append(formatted_entry)
+            
+        print(tabulate(formatted_entries, headers=headers, tablefmt='grid'))
+    
+    def view_full_entry(self, entry_id):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT * FROM research_entries WHERE id = ?', (entry_id,))
+        entry = cursor.fetchone()
+        
+        if entry:
+            print(f"\n=== Entry {entry[0]} ===")
+            print(f"Category: {entry[3]}")
+            print(f"Date Added: {entry[4]}")
+            print("\nSource:")
+            print(entry[1])
+            print("\nAnalysis:")
+            print(entry[2])
+        else:
+            print("Entry not found.")
+    
+    def get_categories(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT DISTINCT category FROM research_entries')
+        return [row[0] for row in cursor.fetchall()]
+
+def main():
+    db = ResearchDatabase()
+    
+    while True:
+        print("\n=== Research Database Manager ===")
+        print("1. Add new entry")
+        print("2. View all entries (summary)")
+        print("3. View by category")
+        print("4. Search entries")
+        print("5. View full entry by ID")
+        print("6. Exit")
+        
+        choice = input("Enter your choice (1-6): ")
+        
+        if choice == '1':
+            db.add_entry()
+        elif choice == '2':
+            db.view_entries()
+        elif choice == '3':
+            categories = db.get_categories()
+            print("\nAvailable categories:")
+            for i, category in enumerate(categories, 1):
+                print(f"{i}. {category}")
+            if categories:
+                cat_choice = input("\nSelect category number: ")
+                try:
+                    selected_category = categories[int(cat_choice)-1]
+                    db.view_entries('category', selected_category)
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+            else:
+                print("No categories found.")
+        elif choice == '4':
+            search_term = input("Enter search term: ")
+            db.view_entries('search', search_term)
+        elif choice == '5':
+            entry_id = input("Enter entry ID: ")
+            try:
+                db.view_full_entry(int(entry_id))
+            except ValueError:
+                print("Invalid ID.")
+        elif choice == '6':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+</code></pre></div></div><p>Then it looks like this: pretty cool:</p><p>=== Research Database Manager ===</p><ol><li>Add new entry<li>View all entries (summary)<li>View by category<li>Search entries<li>View full entry by ID<li>Exit</ol><p>Enter your choice (1-6): 1</p><p>Enter new research entry: Enter primary source text: 1751皇清職貢圖 Enter your analysis: earliest record of this occupation Enter category: official Entry added successfully!</p><p>=== Research Database Manager ===</p><ol><li>Add new entry<li>View all entries (summary)<li>View by category<li>Search entries<li>View full entry by ID<li>Exit</ol><p>Enter your choice (1-6): 1</p><p>Enter new research entry: Enter primary source text: 難忘上學路 Enter your analysis: the landscape of the river valley, the mountains, and the state’s purchasing station Enter category: individual Entry added successfully!</p><p>=== Research Database Manager ===</p><ol><li>Add new entry<li>View all entries (summary)<li>View by category<li>Search entries<li>View full entry by ID<li>Exit</ol><p>Enter your choice (1-6): 4</p><p>Enter search term: river valley</p><table><thead><tr><th>ID<th>Category<th>Source<th>Analysis<th>Date Added<tbody><tr><td>2<td>individual<td>難忘上學路<td>the landscape of the river valley, the mountains, …<td>2024-10-31 01:39:24.758977</table><p>=== Research Database Manager ===</p><ol><li>Add new entry<li>View all entries (summary)<li>View by category<li>Search entries<li>View full entry by ID<li>Exit</ol><p>Enter your choice (1-6): 2</p><table><thead><tr><th>ID<th>Category<th>Source<th>Analysis<th>Date Added<tbody><tr><td>1<td>official<td>1751皇清職貢圖<td>earliest record of this occupation<td>2024-10-31 01:38:19.851979<tr><td>2<td>individual<td>難忘上學路<td>the landscape of the river valley, the mountains, …<td>2024-10-31 01:39:24.758977</table><p>=== Research Database Manager ===</p><ol><li>Add new entry<li>View all entries (summary)<li>View by category<li>Search entries<li>View full entry by ID<li>Exit</ol><p>Enter your choice (1-6): [<strong>__</strong><strong>__</strong><strong>__</strong>__]</p></main><footer> <a href="/blog">← Back to all writings</a> <!--<nav class="sans"><hr> <input class="menu-btn" type="checkbox" id="menu-btn" /><p><label class="menu-icon" for="menu-btn">Menu</label></p><ul class="site-nav"><li><a href="/">Home</a><li><a href="/blog">Blog</a><li><a href="/designs">Designs</a><li><a href="/about">About</a><li><a href="https://canisee.xyz" title="Confirm your vision functionality">[Can I See]</a></ul></nav>--> <!-- <span class="mini-note">You've reached the end of the page. Good job!</span> --> <!--<nav class="sans"><hr><p><label class="menu-icon" for="menu-btn">Menu</label></p><ul class="site-nav"><li><a href="/">Home</a><li><a href="/blog">Blog</a><li><a href="/designs">Designs</a><li><a href="/about">About</a><li><a href="https://canisee.xyz" title="Confirm your vision functionality">[Can I See]</a></ul></nav>--> <!--<div class="bottom-footer"> <i>Theme <a href="https://knhash.in/jekyllBear" title="the art">jekyllBear</a> built and maintained by <a href="https://knhash.in" title="the artist">knhash</a> </i></div>--></footer><!-- <script type="text/x-mathjax-config"> MathJax.Hub.Config({ extensions: ["tex2jax.js", "TeX/AMSmath.js"], jax: ["input/TeX", "output/SVG"], }) </script> <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=default"> </script> -->
