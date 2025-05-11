@@ -99,7 +99,7 @@ _A glimpse of the Min River Valley, Sichuan, China. Photo taken by me during fie
 </head>
 
 <head>
-    Writing log:
+    Writing log since May 2025:
 </head>
 
 <div class="contribution-chart">
