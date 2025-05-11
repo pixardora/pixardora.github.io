@@ -11,7 +11,7 @@ Just mark down the steps to run jekyll serve locally:
 1. Open `terminal`;
 2. `cd` to the local host folder;
 3. run `bundle exec jekyll serve`;
-4. add new fils under `_posts`;
+4. add new files under `_posts`;
 5. copy the headers from previous post;
 4. _Remember_ to `ctrl` + `c` to stop the serve!
 
