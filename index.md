@@ -105,20 +105,17 @@ _A glimpse of the Min River Valley, Sichuan, China. Photo taken by me during fie
 <div class="contribution-chart">
   <table class="contribution-table" aria-label="Writing contribution heatmap">
     {% assign today = site.time | date: '%s' %}
-
-    <!-- 找出 writing.yml 裡最早的日期 -->
-    {% assign writing_dates = site.data.writing | keys | sort %}
-    {% assign first_date = writing_dates | first %}
-    {% assign first_date_ts = first_date | date: '%s' %}
-
-    <!-- 把起始日期設為 first_date 所在週的週日 -->
-    {% assign first_weekday = first_date | date: '%w' | plus: 0 %}
-    {% assign days_to_sunday = first_weekday | times: 86400 %}
-    {% assign one_year_ago_sunday = first_date_ts | minus: days_to_sunday %}
-
+    {% assign one_year_ago = today | minus: 31536000 %}
+    
     <!-- Pre-calculate constants -->
     {% assign weeks = 52 %}
     {% assign days = 7 %}
+
+    <!-- 计算 one_year_ago 的星期几（0=Sun, 1=Mon, ...） -->
+    {% assign one_year_ago_date = one_year_ago | date: '%w' | plus: 0 %}
+    <!-- 调整到最近的周日（减去星期几的天数） -->
+    {% assign days_to_sunday = one_year_ago_date | times: 86400 %}
+    {% assign one_year_ago_sunday = one_year_ago | minus: days_to_sunday %}
 
     <!-- Debugging: Check if data is loaded -->
     {% if site.data.writing %}
