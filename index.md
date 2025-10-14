@@ -99,7 +99,7 @@ _A glimpse of the Min River Valley, Sichuan, China. Photo taken by me during fie
 </head>
 
 <head>
-    Writing log since May 2025:
+    Writing log since May 2025. Late September: finished the first draft — then drifted “at sea” for a while. Lots of new project ideas surfaced, but none felt right to land on. Mid-October: serious (sort of) writing restarted amid a flurry of applications.
 </head>
 
 <div class="contribution-chart">
