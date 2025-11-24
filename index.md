@@ -142,7 +142,7 @@ _A glimpse of the Min River Valley, Sichuan, China. Photo taken by me during fie
             {% assign current_date_ts = week_start | plus: day_offset %}
             {% assign current_date = current_date_ts | date: '%Y-%m-%d' %}
             {% assign count = site.data.writing[current_date] | default: 0 %}
-            {% assign level = count | divided_by: 100 | at_least: 0 | at_most: 4 %}
+            {% assign level = count | divided_by: 250 | at_least: 0 | at_most: 4 %}
 
             <td class="contribution-day contribution-level-{{ level }}"
                 data-date="{{ current_date }}"
