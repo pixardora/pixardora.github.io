@@ -7,9 +7,10 @@ heatmap_start: "2025-04-27"
 
 I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I study history of medicine, science, and the environment. I enjoy doing fieldwork in western China, mainly the Upper Min River region in Sichuan province. I am currently writing a monograph on the life stories of medicine gatherers of Chinese medicines.
 
-![The Min River](assets/images/valley.jpeg)
-
-_A glimpse of the Min River Valley, Sichuan, China. Photo taken by me during fieldwork, 2019._
+<figure>
+  <img src="assets/images/valley.jpeg" alt="The Min River Valley, Sichuan, China">
+  <figcaption>A glimpse of the Min River Valley, Sichuan, China. Photo taken during fieldwork, 2019.</figcaption>
+</figure>
 
 {% assign start_ts = page.heatmap_start | date: '%s' | plus: 0 %}
 {% assign today_ts = site.time | date: '%s' | plus: 0 %}
