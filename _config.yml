@@ -2,7 +2,7 @@
 # site.title
 
 title: Work in Progress
-description: a minimal, text focused blog theme
+description: Postdoctoral fellow at Oxford, studying history of medicine, science, and the environment in western China.
 # baseurl: "/jekyllBear" # the subpath of your site, e.g. /blog/
 url: "https://pixardora.github.io/" # the base hostname & protocol for your site
 
@@ -56,10 +56,10 @@ timezone: Hongkong
 future: false
 
 exclude:
-- README.md
-- LICENSE.md
-
-exclude: [vendor]
+  - README.md
+  - LICENSE.md
+  - vendor
+  - index_bak.md
 
 Blog: /blog/
 

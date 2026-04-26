@@ -333,17 +333,126 @@ hr {
     border: 1.61803px solid;
 }
 
-body:hover {
-    border-image: ;
-    border-width: 0;
-}
-
-
-small a {
-    padding-right: 0.61803rem;
-}
-
 .bottom-footer {
     padding: 50px;
     text-align: center;
+}
+
+/* Writing Heatmap */
+.heatmap-wrapper {
+    overflow-x: auto;
+    margin: 0.5rem 0 1rem;
+}
+
+.heatmap-note {
+    font-size: 0.78rem;
+    color: #888;
+    margin: 1rem 0 0.4rem;
+}
+
+.heatmap-table {
+    border-spacing: 3px;
+    border-collapse: separate;
+}
+
+.heatmap-cell {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    cursor: default;
+    transition: transform 0.1s ease;
+}
+
+.heatmap-cell:hover {
+    transform: scale(1.5);
+    outline: 1px solid rgba(0,0,0,0.2);
+}
+
+.month-cell {
+    font-size: 9px;
+    color: #767676;
+    padding: 0 0 2px 0;
+    white-space: nowrap;
+    vertical-align: bottom;
+    min-width: 13px;
+}
+
+.day-label {
+    font-size: 9px;
+    color: #767676;
+    text-align: right;
+    padding-right: 4px;
+    white-space: nowrap;
+    min-width: 22px;
+    line-height: 13px;
+}
+
+.day-label-right {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+.level-0 { background: #ebedf0; }
+.level-1 { background: #fff9c4; }
+.level-2 { background: #fff176; }
+.level-3 { background: #ffb300; }
+.level-4 { background: #ff8f00; }
+
+.heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: #767676;
+    justify-content: flex-end;
+    margin-top: 2px;
+}
+
+.legend-cell {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    background: #24292f;
+    color: #f0f6fc;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease;
+    z-index: 9999;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.tooltip.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+    .level-0 { background: #2d3748; }
+    .level-1 { background: #4a4a1a; }
+    .level-2 { background: #6b6b00; }
+    .level-3 { background: #b38600; }
+    .level-4 { background: #d47000; }
+
+    .month-cell,
+    .day-label,
+    .heatmap-legend { color: #8b949e; }
+
+    .heatmap-note { color: #8b949e; }
+
+    .tooltip {
+        background: #e6edf3;
+        color: #24292f;
+    }
 }
