@@ -19,14 +19,19 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
 
 {% assign total_words = 0 %}
 {% assign writing_days = 0 %}
+{% assign revision_days = 0 %}
 {% for entry in site.data.writing %}
-  {% assign val = entry[1] | plus: 0 %}
-  {% assign total_words = total_words | plus: val %}
-  {% if val > 0 %}{% assign writing_days = writing_days | plus: 1 %}{% endif %}
+  {% if entry[1] == "R" %}
+    {% assign revision_days = revision_days | plus: 1 %}
+  {% else %}
+    {% assign val = entry[1] | plus: 0 %}
+    {% assign total_words = total_words | plus: val %}
+    {% if val > 0 %}{% assign writing_days = writing_days | plus: 1 %}{% endif %}
+  {% endif %}
 {% endfor %}
 {% assign total_k = total_words | divided_by: 1000 %}
 
-<p class="heatmap-note">Writing log · {{ page.heatmap_start | date: "%b %Y" }}–{{ site.time | date: "%b %Y" }} · {{ total_k }}k words · {{ writing_days }} writing days</p>
+<p class="heatmap-note">Writing log · {{ page.heatmap_start | date: "%b %Y" }}–{{ site.time | date: "%b %Y" }} · {{ total_k }}k words · {{ writing_days }} writing days{% if revision_days > 0 %} · {{ revision_days }} revision days{% endif %}</p>
 
 <div class="heatmap-wrapper">
   <table class="heatmap-table" aria-label="Writing heatmap">
@@ -57,7 +62,15 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
           {% assign day_offset = 86400 | times: day %}
           {% assign cell_ts  = col_ts | plus: day_offset %}
           {% assign cell_date = cell_ts | date: '%Y-%m-%d' %}
-          {% assign count = site.data.writing[cell_date] | default: 0 %}
+          {% assign raw = site.data.writing[cell_date] %}
+          {% if raw == "R" %}
+          <td class="heatmap-cell level-r"
+              data-date="{{ cell_date }}"
+              data-type="revision"
+              aria-label="{{ cell_date }}: revision day"
+              role="gridcell"></td>
+          {% else %}
+          {% assign count = raw | default: 0 | plus: 0 %}
           {% if count == 0 %}
             {% assign level = 0 %}
           {% elsif count < 500 %}
@@ -74,6 +87,7 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
               data-count="{{ count }}"
               aria-label="{{ cell_date }}: {{ count }} words"
               role="gridcell"></td>
+          {% endif %}
         {% endfor %}
         <td class="day-label day-label-right">
           {% case day %}
@@ -94,6 +108,9 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
     <span class="legend-cell level-3"></span>
     <span class="legend-cell level-4"></span>
     <span>More</span>
+    <span class="legend-sep">·</span>
+    <span class="legend-cell level-r"></span>
+    <span>Revision</span>
   </div>
 </div>
 
@@ -108,10 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.heatmap-cell').forEach(cell => {
     cell.addEventListener('mouseenter', () => {
-      const count = parseInt(cell.dataset.count, 10);
-      tooltip.textContent = count > 0
-        ? `${cell.dataset.date}: ${count.toLocaleString()} words`
-        : `${cell.dataset.date}: no entry`;
+      if (cell.dataset.type === 'revision') {
+        tooltip.textContent = `${cell.dataset.date}: revision`;
+      } else {
+        const count = parseInt(cell.dataset.count, 10);
+        tooltip.textContent = count > 0
+          ? `${cell.dataset.date}: ${count.toLocaleString()} words`
+          : `${cell.dataset.date}: no entry`;
+      }
 
       const rect = cell.getBoundingClientRect();
       tooltip.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;

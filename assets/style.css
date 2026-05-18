@@ -433,6 +433,19 @@ small a {
 .level-2 { background: #fff176; }
 .level-3 { background: #ffb300; }
 .level-4 { background: #ff8f00; }
+.level-r {
+  background: #b3d9f7;
+  text-align: center;
+  vertical-align: middle;
+}
+.level-r::after {
+  content: 'r';
+  display: block;
+  font-size: 7px;
+  font-weight: bold;
+  color: #1565c0;
+  line-height: 10px;
+}
 
 .heatmap-legend {
     display: flex;
@@ -449,6 +462,11 @@ small a {
     height: 10px;
     border-radius: 2px;
     display: inline-block;
+}
+
+.legend-sep {
+    margin: 0 3px;
+    color: #767676;
 }
 
 .tooltip {
@@ -479,6 +497,8 @@ small a {
     .level-2 { background: #6b6b00; }
     .level-3 { background: #b38600; }
     .level-4 { background: #d47000; }
+    .level-r { background: #0d3a5c; }
+    .level-r::after { color: #64b5f6; }
 
     .month-cell,
     .day-label,
