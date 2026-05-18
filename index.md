@@ -68,7 +68,7 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
               data-date="{{ cell_date }}"
               data-type="revision"
               aria-label="{{ cell_date }}: revision day"
-              role="gridcell"></td>
+              role="gridcell">r</td>
           {% else %}
           {% assign count = raw | default: 0 | plus: 0 %}
           {% if count == 0 %}
@@ -109,7 +109,7 @@ I am a postdoctoral fellow at the Oxford School of Global and Area Studies. I st
     <span class="legend-cell level-4"></span>
     <span>More</span>
     <span class="legend-sep">·</span>
-    <span class="legend-cell level-r"></span>
+    <span class="legend-cell level-r">r</span>
     <span>Revision</span>
   </div>
 </div>
