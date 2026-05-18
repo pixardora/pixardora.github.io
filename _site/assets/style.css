@@ -393,6 +393,7 @@ small a {
 .heatmap-cell {
     width: 10px;
     height: 10px;
+    padding: 0;
     border-radius: 2px;
     cursor: default;
     transition: transform 0.1s ease;
@@ -433,7 +434,7 @@ small a {
 .level-2 { background: #fff176; }
 .level-3 { background: #ffb300; }
 .level-4 { background: #ff8f00; }
-.level-r { background: #89cff0; }
+.level-r { background: #c8e6f8; }
 
 .heatmap-legend {
     display: flex;
@@ -485,7 +486,7 @@ small a {
     .level-2 { background: #6b6b00; }
     .level-3 { background: #b38600; }
     .level-4 { background: #d47000; }
-    .level-r { background: #2a5f7a; }
+    .level-r { background: #1e4a63; }
 
     .month-cell,
     .day-label,
