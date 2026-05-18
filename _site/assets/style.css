@@ -433,16 +433,7 @@ small a {
 .level-2 { background: #fff176; }
 .level-3 { background: #ffb300; }
 .level-4 { background: #ff8f00; }
-.level-r {
-  background: #ebedf0;
-  font-size: 6px;
-  font-weight: bold;
-  color: #ff8f00;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 10px;
-  overflow: hidden;
-}
+.level-r { background: #89cff0; }
 
 .heatmap-legend {
     display: flex;
@@ -494,7 +485,7 @@ small a {
     .level-2 { background: #6b6b00; }
     .level-3 { background: #b38600; }
     .level-4 { background: #d47000; }
-    .level-r { background: #2d3748; color: #ff8f00; }
+    .level-r { background: #2a5f7a; }
 
     .month-cell,
     .day-label,
