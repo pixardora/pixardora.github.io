@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "日常 The 'Everyday' "
+title:  "日常 The Everyday "
 date:   2026-08-10
 tags: [writing]
 ---
