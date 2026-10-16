@@ -7,6 +7,8 @@ permalink: /research/
 
 ## Articles
 
+Yao, Wuyutong. “Medicines as Local Products: The Pharmaceutical Infrastructure of Chinese Medicine in Early PRC Sichuan, 1949–1953.” *Bulletin of the History of Medicine* 100, no. 4 (Winter 2026).
+
 Yao, Wuyutong. “Making Modern Pharmaceuticals and Localizing Pharmacy Sciences in Sichuan, 1932–1945.” *Twentieth-Century China* 50, no. 3 (2025): 250–74.
 
 **Abstract**  
