@@ -1,15 +1,15 @@
 ---
 layout: page
 title: Research
-description: Academic publications by Wuyutong Yao
+description: Academic publications
 permalink: /research/
 ---
 
 ## Articles
 
-Yao, Wuyutong. “Medicines as Local Products: The Pharmaceutical Infrastructure of Chinese Medicine in Early PRC Sichuan, 1949–1953.” *Bulletin of the History of Medicine* 100, no. 4 (Winter 2026).
+“Medicines as Local Products: The Pharmaceutical Infrastructure of Chinese Medicine in Early PRC Sichuan, 1949–1953.” *Bulletin of the History of Medicine* 100, no. 4 (Winter 2026).
 
-Yao, Wuyutong. “Making Modern Pharmaceuticals and Localizing Pharmacy Sciences in Sichuan, 1932–1945.” *Twentieth-Century China* 50, no. 3 (2025): 250–74.
+“Making Modern Pharmaceuticals and Localizing Pharmacy Sciences in Sichuan, 1932–1945.” *Twentieth-Century China* 50, no. 3 (2025): 250–74.
 
 **Abstract**  
 This article examines the localization of pharmacy and pharmaceutical sciences in Republican China, particularly during the Second Sino-Japanese War (1937–1945). At the Department of Pharmacy at West China Union University in Sichuan, Chinese and missionary scientists collaborated to adapt scientific pharmacological methods for the study of local medicinal materials. Rather than representing simple knowledge transfer, this work embodied a complex localization process characterized by epistemic parallels, in which multiple systems of pharmaceutical knowledge coexisted and informed each other. Western-trained Chinese scientists adapted scientific methods to study Chinese medicinal ingredients while simultaneously leveraging these materials’ physical presence and local origins to align their work with wartime nationalism. This dual process created a distinctive Chinese scientific pharmacy that merged modern scientific methods with the cultural and political significance of indigenous medicinal materials. This article contributes to our understanding of knowledge transfer and scientific development in non-Western contexts during periods of national crisis.
@@ -17,7 +17,7 @@ This article examines the localization of pharmacy and pharmaceutical sciences i
 [Read online](https://muse.jhu.edu/pub/1/article/970072)
 
 
-Yao, Wuyutong. “Collecting Knowledge about Medicinal Ingredients in Northwestern Sichuan in the 1950s.” *Chinese Medicine and Culture* 6, no. 1 (March 2023): 88–99.
+“Collecting Knowledge about Medicinal Ingredients in Northwestern Sichuan in the 1950s.” *Chinese Medicine and Culture* 6, no. 1 (March 2023): 88–99.
 
 **Abstract**  
 This article explores China’s state-level knowledge production on medicinal ingredients in northwestern Sichuan in the 1950s. Drawing on county-level archives, published materials and interviews, this historical article traces how different levels of governments and state-owned trading companies produced knowledge about medicinal ingredients and its production. It argues that on one hand the state’s procurement standards codified the knowledge about medicinal ingredients from the marketplace and the local producers. On the other hand, direct extraction of knowledge from the medicine gatherers and cultivators verbalized and collected the previously tacit local knowledge about the production of medicinal ingredients, which would help to alleviate the shortage in the supply of traditional Chinese medicines throughout the 1950s.
